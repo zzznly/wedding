@@ -13,71 +13,16 @@ a {
   display: inline-block;
   text-decoration: none;
 }
-.wedding {
-  width: 100vh;
-  height: 100vh;
+
+body {
+  width: 100vw;
+  max-width: 460px;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+  margin: 0 auto;
+  background: yellowgreen;
+
+  // 카카오 인앱 100vh 스크롤문제
+  touch-action: none;
+  position: fixed;
 }
-@media only screen and (max-device-width: 640px) {
-  .wedding {
-    height: calc(var(--var, 1vh) * 100);
-  }
-}
-
-  .header {
-    z-index: 999;
-    width: 100%;
-    background: transparent;
-    position: fixed;
-    padding: 1rem 0;
-    color: #c8c8c8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .main {
-    color: rgba(255,255,255,0.9);
-
-    &-intro {
-      background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.8)), url('../src/assets/img/main.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 59% 0;
-      text-align: center;
-      &__text {
-        .text-tit {
-          font-family: 'Allison', cursive;
-          font-size: 4rem;
-        }
-        .text-info {
-          font-family: 'Noto Serif KR', serif;
-          margin-top: 1rem;
-          line-height: 2rem;
-          letter-spacing: 0.05em;
-        }
-      }
-
-      //&__linkGroup {
-      //  display: flex;
-      //  justify-content: center;
-      //  align-items: center;
-      //  margin-top: 1rem;
-      //}
-      //&__link {
-      //  color: #ffffff;
-      //  font-weight: 300;
-      //  padding: 0.8rem 1.6rem;
-      //  border: 1px solid #ffffff;
-      //  //border-radius: 60px;
-      //  & + div {
-      //    width: 1px;
-      //    height: 10px;
-      //    background: #ffffff;
-      //  }
-      //}
-    }
-
-    &-info {}
-    &-contact {}
-  }
-  .footer {}

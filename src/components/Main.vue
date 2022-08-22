@@ -1,75 +1,34 @@
 <template>
   <div class="main">
-    <div class="section main-intro" id="main-intro">
-      <h1 class="main-intro__title">Save the Date</h1>
-      <p class="main-intro__date">2022. 09. 24 SAT PM 12:00</p>
-      <p class="main-intro__place">송파 예한교회 3층 예배당</p>
-      <a href="#main-greeting" class="main-intro__more">더보기</a>
-    </div>
-    <div class="main-greeting" id="main-greeting">
-      <div class="main-greeting__photo">
-        <img src="../assets/img/img__greet.png" alt=""/>
-      </div>
-      <div class="main-greeting__content">
-        <div class="content__title">
-          <p>신종술 ∙ 박혜숙의 장남 <span>명민</span></p>
-          <p>유지황 ∙ 김혜경의 장녀 <span>도진</span></p>
-        </div>
-        <hr style="border: solid 1px #2C3E50; width: 80px; margin: 40px auto" />
-        <div class="content__text">
-          <p>
-            저희 두사람 함께 맞는 세번째 가을의 어느 멋진 날,<br/>
-            살다보면 찾아올 겨울마저 믿음과 사랑으로 견디며<br/>
-            끝내 맞을 봄날을 감사함으로 누리겠다고<br/>
-            평생의 약속과 함께 주님 앞에 예배하려 합니다<br/>
-            귀한날 오셔서 축복해주시면 감사하겠습니다
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="main-location">
-      <h2 class="main-location__title">오시는길</h2>
-        <div class="main-location__map" id="map"></div>
-      <p class="main-location__desc">
-        서울특별시 송파구 올림픽로 417 예한교회 <br/>
-        (지도를 클릭하시면 카카오맵으로 이동합니다)
-      </p>
-    </div>
-    <div class="section main-date">
-      <div class="main-date__calendar">
-        <div class="main-date__header">
-          <p>9월</p>
-        </div>
-        <div class="main-date__month">
-          <div class="main-date__week">
-            <div class="main-date__day empty"></div>
-            <div class="main-date__day empty"></div>
-            <div class="main-date__day empty"></div>
-            <div class="main-date__day empty"></div>
-            <div
-                class="main-date__day"
-                v-for="(item, idx) in monthDaysArr"
-                :key="`monthDaysArr-${idx}`"
-            >
-              <span>{{ item }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section main-contact">
-
-    </div>
-    <div class="section main-contact"></div>
-    <div class="section main-gallery"></div>
-    <div class="section main-survey"></div>
+    <main-intro/>
+    <main-greeting/>
+    <main-date :propsData="{ monthDaysArr }"/>
+    <main-location/>
+    <main-contact/>
+    <main-gallery/>
+    <main-survey/>
   </div>
 </template>
 
-<script></script>
 <script>
 // import { ref } from 'vue';
+import MainIntro from '@/components/main/MainIntro'
+import MainGreeting from "@/components/main/MainGreeting";
+import MainDate from "@/components/main/MainDate";
+import MainLocation from "@/components/main/MainLocation";
+import MainContact from "@/components/main/MainContact";
+import MainGallery from "@/components/main/MainGallery";
+import MainSurvey from "@/components/main/MainSurvey";
 export default {
+  components: {
+    MainSurvey,
+    MainContact,
+    MainGallery,
+    MainLocation,
+    MainDate,
+    MainGreeting,
+    MainIntro
+  },
   setup() {
     let monthDaysArr = Array(30).fill().map((arr, i) => { return i + 1 });
 
@@ -124,7 +83,11 @@ export default {
       // 이미 카카오맵 API가 로딩되어 있다면 바로 지도를 생성한다.
       this.initMap()
     }
-  }
+  },
+
+  created() {
+    console.log('###query', this.$route.query.target);
+  },
 }
 </script>
 

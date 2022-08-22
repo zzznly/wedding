@@ -1,11 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router/index.js'
 
 
-import Datepicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+const app = createApp(App)
 
-
-const app = createApp(App);
-app.component('Datepicker', Datepicker);
-app.mount('#app');
+app.use(router).mount('#app')

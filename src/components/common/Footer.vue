@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer section"></footer>
+  <footer class="footer">&copy; Copyright 명민 & 도진 all rights reserved</footer>
 </template>
 
 <script>

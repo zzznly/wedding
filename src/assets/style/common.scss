@@ -9,19 +9,10 @@ html {
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  //width: 100vw;
-  //max-width: 460px;
-  //height: calc(var(--vh, 1vh) * 100);
-  //overflow: hidden;
-  //margin: 0 auto;
-
-  // 카카오 인앱 100vh 스크롤문제
-  //touch-action: none;
-  //position: fixed;
-  //background: yellowgreen;
 }
 
 a {
@@ -59,17 +50,17 @@ a {
     &-intro {
       height: 100vh;
       background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url("../src/assets/img/main.png");
-      background-size: 280%;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position: 57% 0;
       text-align: center;
-      padding: 0 20px;
+      padding: 100% 20px 0;
       color: #f4f4f4;
 
       &__title {
         font-family: 'Dancing Script', cursive;
         font-size: 50px;
-        padding-top: 360px;
+        //padding-top: 320px;
       }
       &__date {
         font-family: 'Alumni Sans', sans-serif;
@@ -90,7 +81,7 @@ a {
         font-family: 'Noto Sans KR', sans-serif;
         font-weight: 400;
         font-size: 14px;
-        margin: 60px auto 0;
+        margin: 40px auto 0;
         background: transparent;
         border: 1px solid #cccccc;
 
@@ -131,7 +122,6 @@ a {
 
     &-location {
       padding: 80px 20px;
-      background: #f7f7f7;
       text-align: center;
       color: #2C3E50;
 
@@ -141,10 +131,11 @@ a {
       }
       &__map {
         margin: 30px auto 0;
-        width: 100%;
-        height: 240px;
+        width: 80%;
+        height: 220px;
         font-family: 'Noto Sans KR', sans-serif;
         font-size: 14px;
+        border-radius: 20px;
       }
       &__desc {
         margin-top: 20px;
@@ -154,6 +145,7 @@ a {
     }
 
     &-date {
+      background: #f7f7f7;
       padding: 60px 20px;
       &__calendar {
         display: flex;
@@ -164,11 +156,20 @@ a {
       }
       &__header {
         width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .date--day {
+          font-size: 20px;
+        }
       }
       &__month {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        margin-top: 20px;
       }
       &__week {
         display: flex;
@@ -176,11 +177,16 @@ a {
         flex-wrap: wrap;
       }
       &__day {
+        font-size: 14px;
         width: 40px;
         height: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        &.red {
+          color: #ff0000;
+        }
       }
       &__day:nth-child(28) {
         span {
@@ -192,6 +198,237 @@ a {
         }
       }
     }
+
+    &-contact {
+      padding: 80px 20px;
+      text-align: center;
+      color: #2C3E50;
+      &__title {
+        font-size: 20px;
+        letter-spacing: 0.3em;
+      }
+      &__content {
+        margin-top: 40px;
+
+        .content-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 10px;
+
+          &__name {}
+          &__icons {
+            display: flex;
+            gap: 16px;
+            .icon {
+              width: 24px;
+              height: 24px;
+
+              &.account {
+                border: none;
+                background-color: transparent;
+              }
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+
+          @at-root &__account {
+            padding: 10px;
+            font-size: 14px;
+            background-color: #e7e7e7;
+            border-radius: 10px;
+          }
+
+        }
+      }
+    }
+
+
+    &-gallery {
+      padding: 80px 20px;
+      text-align: center;
+      &__title {
+        font-size: 20px;
+        letter-spacing: 0.3em;
+      }
+      &__contents {
+        width: 100%;
+      }
+      &__photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 40px;
+        .photo {
+          display: block;
+          overflow: hidden;
+          width: 150px;
+          height: 150px;
+          &:last-child {
+            background-color: rgba(0,0,0, 0.7);
+          }
+          img {
+            display: block;
+            min-width: 100%;
+            max-width: 150%;
+            min-height: 100%;
+            max-height: 150%;
+            margin: 0px auto;
+          }
+        }
+      }
+    }
+
+
+    &-survey {
+      padding: 80px 40px;
+      text-align: center;
+      color: #2C3E50;
+
+      &__title {
+        font-size: 20px;
+        letter-spacing: 0.3em;
+      }
+      &__msg {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1.6em;
+      }
+      &__data {
+        margin-top: 30px;
+        width: 100%;
+
+        .data-search {
+          &__input {
+            padding: 8px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+          }
+          &__btn {
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background: dodgerblue;
+            color: #ffffff;
+          }
+
+        }
+        .data-table {
+          th, td {
+            width: 33.3%;
+            border: 1px solid #ccc;
+          }
+        }
+
+      }
+
+      &__form {
+        margin-top: 40px;
+        text-align: left;
+        color: #555555;
+        font-size: 14px;
+
+        .form-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 40px;
+          input[type="text"] {
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            width: 60%;
+          }
+          input[type="text"]:focus {
+            border: 1px solid dodgerblue;
+            outline: none;
+            transition: all 0.1s ease-in-out;
+          }
+
+          div {
+            flex: 1 1 0;
+            display: flex;
+            justify-content: right;
+
+            label {
+              display: flex;
+              align-items: center;
+
+              &:first-of-type {
+                margin-right: 20px;
+              }
+
+              input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+                width: 0;
+                height: 0;
+              }
+              input[type="radio"] + a {
+                width: 20px;
+                height: 20px;
+                background-image: url("../src/assets/icons/unchecked.png");
+                background-size: cover;
+
+                & + span {
+                  color: #777777;
+                }
+              }
+              input[type="radio"]:checked + a {
+                background-image: url("../src/assets/icons/checked.png");
+
+                & + span {
+                  font-weight: 600;
+                  color: dodgerblue;
+                }
+              }
+
+              span {
+                padding-left: 8px;
+              }
+            }
+
+          }
+        }
+
+        .form__btn {
+          padding: 15px 30px;
+          border: none;
+          border-radius: 8px;
+          color: #ffffff;
+          background: dodgerblue;
+          font-size: 16px;
+
+          margin: 40px auto 0;
+          display: block;
+        }
+
+      }
+    }
   }
 
+  ul {
+    list-style: none;
+    padding: 5px;
+    li {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 5px;
+      border: 1px solid #cccccc;
+      p {
+        width: 33.3%;
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #aaaaaa;
+  }
 }

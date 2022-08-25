@@ -17,6 +17,29 @@ export default {
     Main,
     Footer
   },
+  setup() {
+    const disableScroll = () => {
+      document.querySelector('body').addEventListener('touchmove', this.removeEvent, { passive: false });
+      document.querySelector('body').addEventListener('onclick', this.removeEvent, { passive: false });
+      document.querySelector('body').addEventListener('mousewheel', this.removeEvent, { passive: false });
+    };
+
+    const removeEvent = e => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
+    const enableScroll = () => {
+      document.querySelector('body').removeEventListener('touchmove', this.removeEvent);
+      document.querySelector('body').removeEventListener('onclick', this.removeEvent);
+      document.querySelector('body').removeEventListener('mousewheel', this.removeEvent);
+    }
+    return {
+      disableScroll,
+      removeEvent,
+      enableScroll
+    }
+  }
 }
 </script>
 

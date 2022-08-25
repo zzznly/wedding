@@ -1,7 +1,7 @@
 <template>
   <div class="wedding">
     <Header></Header>
-    <Main></Main>
+    <router-view></router-view>
     <Footer></Footer>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'assets/style/common';
+@import 'assets/styles/common';
+//@import 'assets/'
 
 </style>
